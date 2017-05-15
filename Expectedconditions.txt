@@ -1,0 +1,111 @@
+----------------------------------------Expectedconditions------------------
+
+elementSelectionStateToBe:--->
+
+	An expectation for checking if the given element is selected
+
+Syntax:-->
+
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.elementSelectionStateToBe(by.id("")), false));		
+
+-------------------------------------------------------***********-------------------------------------------------
+elementtobeClickable:---->
+
+	An expectation for checking an element is visible and enabled such
+		 that you can click it.
+
+Syntax:-->
+
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.elementToBeClickable(by.id("")));
+		
+
+--------------------------------------------------**************----------------------------------------------------
+elementtobeselected:--->
+
+	An expectation for checking if the given element is selected.
+
+
+Syntax:-->
+
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.elementToBeSelected(by.id("")));
+
+--------------------------------------------***************----------------------------------------------------------
+
+Alertpresent:-->
+	An expectation for checking if alert presented on page.
+
+Syntax:-->
+
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.Alertpresent());
+
+
+----------------------------------------------************---------------------------------------------------------
+
+invisibilityOfElementLocated:--->
+
+	An expectation for checking that an element is either invisible 
+ 			or not present on the DOM.
+
+Syntax:-->
+
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.invisibilityOfElementLocated(by.id("")));
+
+-----------------------------------------------************----------------------------------------------------------
+
+VisibilityofElementLocated:-->
+
+	An expectation for checking that an element is present on the
+	 DOM of a page and visible
+Sytnax:-->
+	
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.VisibilityofElementLocated(by.id("")));
+
+----------------------------------------------------*********---------------------------------------------------------
+PresenceofElementLocated:-->
+	An expectation for checking that an element is present on the
+	 DOM of a page
+
+Sytnax:-->
+	
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.PresenceofElementLocated(by.id("")));
+
+---------------------------------------------------***************---------------------------------------------
+frameToBeAvailableAndSwitchToIt:--->
+	An expectation for checking if frame available on page, Also
+	switch controls to frame from mainpage
+
+Syntax:-->
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.frametoBeAvailableAndSwitchToIt(By.xpath("frame"));)
+
+---------------------------------------------------------------------------------------------------------------------
+textToBePresentInElementValue:--->
+	An expectation for checking if userinput value available at element
+
+Syntax:--->
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.textToBePresentInElementValue(By.xpath("xpath"),"extpectinput text");)
+----------------------------------------------------------------------------------------------------------------------
+titleis:--->
+	An expectation for checking title is presented at webpage
+
+Syntax:--->
+	WebDriverWait wait=new WebDriverWait(driver, 50);
+	wait.until(ExpectedConditions.titleIs("expected page title"));
+
+
+
+
+
+
+
+
+
+

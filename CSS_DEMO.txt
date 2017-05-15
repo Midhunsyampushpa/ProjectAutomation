@@ -1,0 +1,300 @@
+
+
+Working with Locator class:--->
+		
+	By is Locator Class. Class allow to Select unique
+	locators as methods
+
+Syntax:--->
+		By ref=By.id("xyz");
+		driver.findElement(ref).click();	
+
+	id 
+	name
+	classname
+	cssselector
+	xpath
+	linktext
+	partiallinktext
+	tagname
+
+
+id and name locators:--->
+	
+	id and name are default locators in html source. Developer set id and name
+	for every object to recognize easier.....
+	
+	Htmlsource:--->
+		<input id="x" class="ABC" type="email" name="user">
+
+
+	Syntax for id:-->
+		driver.findElement(By.id("x"));
+
+
+	Syntax for name:--->
+
+		driver.findElement(By.name("user"));
+
+
+	Byclass:--->
+		By ref=By.id("x");
+		driver.findElement(ref).clear();
+
+		
+locating object with className:--->
+		
+	* Developer set classname for group of objects.
+	* don't use class name when duplicated 
+	* use class name when unique available
+
+How to find class duplicated or not?..
+
+		* Select class in Htmlwindow
+		* user Ctrl+F shortcut
+		* press Enter
+
+
+
+Html source:---->
+		<div class="x" type="text">
+		<div class="x" type="password">
+		<div class="y" role="button"> 
+
+
+	driver.findElement(By.classname("x"));     	   //Class x is duplicated
+	driver.findElement(By.classname("Y"));	  	  //unique recognization
+
+
+When Class Having space:---->
+	htmlsource:--->
+
+		<input class="btn   signIn" type="submit">
+
+	Syntax:--->
+		driver.findElement(By.className("btn"));
+		driver.findElement(By.className("signIn"));
+	Note:--->
+		When class property having space we receive 
+			<<<invalidSelectorexception>>>
+
+
+Locating object with CssSelector:--->
+	
+	developer use css to apply styles on webpages.
+	Tester use cssselector to  recognize objects with in webpage..
+
+HtmlSource:--->
+
+	<div id="container">
+		<input id="u_0_1" class="inputtext">
+	<div>
+
+input#u_0_1.inputtext------------------>Tagname#id.classname
+input#u_0_1	     ------------------>Tagname#id
+input.inputtext            ------------------>Tagname.classname   (when class is unique)
+#u_0_1		      ------------------> #id
+#container > input       ------------------>#Parentid > childtagname
+.inputtext	      ------------------>.classname    (when class is unique)
+
+Html Source:---> When class having space
+
+	<input class="user   email    id">
+
+CssSelector:--->
+	input.user.email.id		--->space cover with '.' operator
+
+
+Html source:--->Difference between-----> 'space' and '>'
+
+	<div id="x" class="a">
+	     <div class="a">
+		<input class="a"></input>
+	      </div>
+	</div>
+	
+
+CssSelector:-->With   '>'   symbol
+
+		div#x > div.a > input.a
+
+	Note:---> Should define absolute child position
+
+CssSelector:-->With  space
+
+		div#x  input
+
+	Note:---> Not mandatory to define every child position. we can
+		define any matching child position
+----------------------------------------------------------------------------------------------------------->
+Example Css Attribute:----> 
+
+	Note:---> Instead of default #id and class properties. we can also use
+		ohter properties to recognize object
+Syntax:--->
+		tagname[property='propertyvalue']		
+Htmlsource:--->
+
+	<input id="x" class="A" type="email" name="user" maxlength="40">
+
+Syntax:-->Using attribute
+
+		input[id='x']
+		input[class='A']
+		input[type='email']
+		input[name='user']
+		input[maxlength='40']
+
+	Note:-->  *  in above syntax   id   and    name   are unique properties we can 				define it directly without checking duplication..
+
+	              * while specifying csspath for other properties check property
+		duplicated or not duplicated
+
+Example Css Multiple attributes:---->
+
+Syntax:-->
+		tagname[property='propertyvalue'][property='propertyvalue']
+
+Htmlsource:--->
+
+	<input id="x" class="A" type="email" >
+	<input id="x" class="B" type="email">
+	<input  class="B>
+
+CssSelector:--->Second element to recognize
+		input[id='x'][class='B']
+		input[class='B'][type='email']
+
+
+------------------------------------------------------------------------------------------------------------
+
+Example Css Default and Attribute method:--->
+
+Html source:--->
+
+	<div id="x" class="a">
+	     <div class="a">
+		<div class="a"></div>
+	      </div>
+	</div>	
+
+
+CssSelector:--->     Attribute and default css
+		div[id='x'] > div.a >div.a
+		div#x  > div.a  > div[class='a']
+
+-----------------------------------------------------------------------------------------------------------
+Dynamic Css Selector:----> 
+	Note:--> Dynamic css usefull when object properties are dynamically 
+		changing at runtime.
+
+		*   ---> Contains
+		$   ---> Ends with	
+		^   ---> Starts with
+
+	we follow above regular expression to handle dynamic
+	changes on object properties
+
+Example with  '*'   :---> recognize object with only maching characters
+
+	Syntax:--->       tagname[property*='matching propertyvalue']
+
+Example:---> Dynamic changes on object properties
+
+	Browser session 1:-->   <input id="user1">
+	Browser session 2:-->   <input id="user2">
+	Browser session 3:-->   <input id="user3">
+
+
+	CssSelector:--->	input[id*='user']			
+--------------------------------------------------------------------------------------------------------
+
+Example with '$'  :-->recognize object with end characters
+
+	Syntax:--->       tagname[property$=property end characters']
+
+Example:---> Dynamic changes on object properties
+
+	Browser session 1:-->   <input id="1_user">
+	Browser session 2:-->   <input id="2_user">
+	Browser session 3:-->   <input id="3_user">
+	
+	CssSelector:--->	input[id$='_user']
+-------------------------------------------------------------------------------------------------------------
+Example with '^'  :-->recognize object with starting characters
+
+	Syntax:--->       tagname[property^=property start characters']
+
+Example:---> Dynamic changes on end characters at property
+
+	Browser session 1:-->   <input id="first_user1">
+	Browser session 2:-->   <input id="first_user2">
+	Browser session 3:-->   <input id="first_user3">
+	
+	CssSelector:--->	input[id^='first_user']
+
+----------------------------------------------------------------------------------------------------
+Cssselector using Position:--->
+	when any element does't consist unique properties. Using
+	position we can recognize objects
+
+html source:--->
+
+	<table id="x">
+		<tr></tr>
+		<tr></tr>                              
+		<tr>
+ 		       <td>
+		            <a  href="#">
+		       </td>
+
+		       <td>
+		            <a  href="#">
+		       </td>
+
+		       <td>
+		            <a  href="#">
+		       </td>
+		</tr>
+	    </table>
+Syntax:--->
+
+		tagname:nth-child(position)
+		tagname:nth-of-type(position)
+		tagname:nth-last-child()
+
+CssSelector:--> for above html source:--> third row and third column in table
+
+		table#x > tr:nth-child(3) > td:nth-child(3) > a
+
+
+Example2:---> Target feb option using Position
+
+		<select id="month"  name="birthday_month" >
+			<option >Jan</option>
+			<option >Feb</option>
+			<option >Mar</option>
+		</select>
+
+CssPosition:--->
+
+			select#month > option:nth-child(2)
+
+------------------------------------------------------------------------------------------------------------------
+how to copy css from htmlsource:---->
+
+
+Right Click on Element
+Inspect element 
+on highlighted source right click
+select copy unique selector
+
+
+
+
+
+
+
+
+
+	
