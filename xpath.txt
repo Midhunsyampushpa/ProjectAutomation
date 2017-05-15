@@ -1,0 +1,197 @@
+
+htmlsource:---->to generate absolute xpath
+
+<html>
+       <body>
+	<div class="x">
+	       <div id="Login_Container">
+		<div class="a">
+		      <input id="uid" class="login" type="text">
+		</div>
+
+		<div class="a">
+		      <input id="pwd" class="login" type="text">
+		</div>
+	       </div>
+
+	        <div id="button">
+		<button id="signin"  class="login" type="submit">
+	         </div>
+	</div>
+     </body>
+</html>	
+
+
+Absolutexpath:------->
+
+	username    :--->    /html/body/div/div[1]/div[1]/input
+	password     :--->    /html/body/div/div[1]/div[2]/input
+	SigninButton:--->    /html/body/div/div[2]/button
+
+Xpath position:----> 
+
+	username    :--->   //div[1]/input
+	password     :--->  //div[2]/input
+	SigninButton:--->  //div[2]/button
+
+
+-------------------------------------------------------------------------------------------------------------------->
+Relative Xpath:--->
+
+	
+	relative xpath is usefull to target object using attribute names. we use 
+	relative xpath when object dynamically changing it's position with in page
+
+
+	Navigation to Select Relative xpath:---->
+
+	open firebug window----->Open firepath List---. in firepath list
+				un check generate absolute xpath
+
+	Find Xpath Using Firepath:--->
+		Select Firepath tab------>Using inspector locate element
+		--->it Display Xpath in firepath window
+
+	Syntax for relative xpath:--->
+
+		.//tagname[@propertyname='propertyvalue']
+
+
+		.---> Current node
+	       	//--> Current node
+		* --> All Elements
+	tagname      --> Select only related tagelements
+		[]--> braces use to target single attribute
+		@ --> Attribute
+		id--> unique id
+		value----?       [property='propvalue']
+
+
+html source:--->
+
+
+	<div class="a">
+	       <div id="Login_Container">
+		<div class="a">
+		      <input id="uid" class="login" type="text">
+		</div>
+	         </div>
+	 </div>
+
+
+
+//Write Relative xpath to Recognize Uid Editbox
+	
+		Syntax:-->   //tagname[@attributename='attributevalue']
+
+			   //input[@id='uid']    
+
+
+//Write Relative xpath to Recognize Uid Editbox using parent Element
+
+	Syntax:--->  //parenttagname[@parentprop='propvalue']/childposition
+
+			//div[@id='Login_Container']/div/input
+
+
+ Dynamic xpath:--->
+
+	usefull  when object properties dynmically changing at runtime
+	
+Example:---> Dynamic xpath when changes at Element properties
+
+syntax:--->
+	//tagname[contains(@prop,'propvalue')]
+
+Application Source:--->
+
+	Browsersession 1  ----> id=abc_xyz_123
+	Browsersession 2 -----> id=abg_xyz_123
+	Browsersession 3 -----> id=nbc_xyz_abc
+
+
+	//*[contains(@id,'xyz')]
+	
+	
+ Example:---> Dynamic xpath when changes at start character
+		  
+	Browsersession1:---> id="xyz_a1234"
+	Browsersession2:---> id="vfd_a1234"
+	browserSession3:---> id="abc_a1234"
+		  
+	Syntax:-->
+		 
+		  //tagname[ends-with(@property,'propertyvalue')]
+		  				  		
+		 //*[ends-with(@id,'_a1234')]
+		 		
+Example:---> Dynamic xpath when changes at End character
+		
+	  Browsersession1:---> id="abc_1234"
+	  Browsersession2:---> id="abc_1235"
+	  browserSession3:---> id="abc_1236"
+		
+	Syntax:-->
+ 		//tagname[starts-with(@propertyname,'propvalue')]
+		
+		//*[starts-with(@id,'abc_')]
+------------------------------------------------------------------------------------------------->
+Dynamic Xpath:---> TargetElement with OutterText
+
+	Syntax:--->
+		//*[contains(text(),'Element-outterText')]
+		//*[contains(.,'Element-outtertext')]
+
+
+-------------------------------------------------------------------------------------------------------->
+When any node duplicated with in html source:--->
+			 
+	Html source:--->
+
+		    <div id="UsernameTab class="A">
+			<div class="border" >
+		 		<input id="realobject">
+			</div>
+
+			<div class="border">
+				<input id="realobject">
+			</div>
+		        </div>
+	
+ Syntax:-->
+	//input[contains(@id,'realobject')][position()=1]    first object to target
+	//input[contains(@id,'realobject')][position()=2]    second object to target
+		
+----------------------------------------------------------------	
+
+Webdriver webelement locator:--->
+		
+	This addon is designed to support and speed up the creation of WebDriver
+	 scripts by easing the location of web elements.
+		
+	Install Plug In:-->
+		* google for webelemet locator
+		* click on mozilla plug in
+		* Click add to firefox
+		* click Install
+						
+		 
+	 To use this extension, simply right click on the web element you wish to 		locate,select an appropriate locator string and it'll be copied to your 			clipboard.
+	
+	
+
+
+	 
+	PLEASE NOTE: To disable any locator types you don't need (E.g. Support, 		Ruby), 
+	just go to Tools>Add-ons (Ctrl+Shift+A), and uncheck them in the addon 		options.
+		  
+		 
+		
+		
+		
+
+
+
+
+
+		

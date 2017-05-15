@@ -1,0 +1,1606 @@
+ 
+
+-------------------------------------->>>>
+
+id
+name
+classname
+cssselector
+xpath
+
+
+
+----------------------------------->>>
+
+Xpath:---->
+
+	Xpath is a unique locator builder in selenium. Based on html
+	tag position xpath target object location....
+
+
+To generate xpath we follow firepath:--->
+
+	firepath is a extension for firefox , also for firebug window,
+	using firepath we can monitor cssselector and xpathselector.
+
+Installation of firepath:--->
+
+	In google, search for  firepath for firefox
+	click primary link, mozilla add-on 
+	click on add to firefox
+	click allow to install plugin
+	Restart browser
+
+	After installation of firepath. it will display in firebug window at the same
+	time in contextmenu(right click on Element) option also.
+
+
+Xpath available in two types
+
+	1.Absolute xpath          --->index
+	2.Relative xpath	     --->attribute
+
+1.Absolute Xpath:--->
+	
+	Absolute xpath is usefull to target object using tag position. We follow
+	absolute when object properties dynamically changing but object position
+	 should be static at page
+
+	Navigation to select Absolute xpath:--->
+
+	Open firebug window-----> Open firepath List> in firepath list
+				Select generate absolute path
+
+	Find Xpath Using Firepath:--->
+		Select Firepath tab------>Using inspector locate element
+		
+	Example syntax:--->
+			/html/body/div/input[1]
+
+		Nodes in Xpath:--->
+				/   ---> RootNode
+				// ---> ChildNode
+				[ ]  -->  tag index Position
+				/  ---> child position to target   [After parent node]
+
+2.Relative xpath:--->
+	
+	relative xpath is usefull to target object using attribute names. we use 
+	relative xpath when object dynamically changing it's position with in page
+
+
+	Navigation to Select Relative xpath:---->
+
+	open firebug window----->Open firepath List---. in firepath list
+				un check generate absolute xpath
+
+	Find Xpath Using Firepath:--->
+		Select Firepath tab------>Using inspector locate element
+		--->it Display Xpath in firepath window
+
+	Syntax for relative xpath:--->
+
+		.//*[@propertyname='propertyvalue']
+
+		.---> Current node
+	       	//--> Current node
+		* --> All Attributes (All object properties)
+	tagname    --> Selected Element tagname
+		[]--> braces use to target single attribute
+		@ --> Attribute
+		id--> unique id or name need to define
+
+----------------------------WebElement locator---------------------
+
+
+
+
+--------------------Java------------------------>>>
+
+
+class :---->
+	Class a blueprint or template
+	where it cosist of set objects, methods, Variables
+
+
+Syntax:--->
+
+	class Mobiles
+	{
+
+	}
+
+
+Method:--->
+
+	Method Define object and class behaviour and state
+
+	Methods can create under class only
+
+Syntax:--->
+
+	class Mobiles
+	{
+
+		void samsung()
+		{
+
+		}
+
+		void Iphone()
+
+		{
+		
+		}
+
+	}
+
+
+Variable:-->
+
+	Variable is temparory location to store value
+
+	in Variable, value can be store according data types only
+
+Datatype:--->
+
+	Same as other programming languages Java also allow datatype to 
+	store values
+
+	Datatype define what value to store into variable
+
+	
+	premtives datatypes:--->
+
+	byte
+	short
+	int
+	char
+	boolean
+	double
+	float
+
+
+	Byte:---> 8 bit
+		Byte is a integer data type 
+		it allow max value 127
+		it allow min value -127
+
+		byte days=127;
+
+	short:--->16 bit
+
+		short is a integer datatype
+		
+		shot sal=1000;
+
+	int:---->32 bit
+		int is a integer datatypes
+		
+		int phonenumber=983739390;
+
+	long:---->64 bit
+		long is a integer datatype
+		
+		long amount=127686868698;
+
+	char:---> single character with in single codes
+
+		char group='A';
+
+	boolean:--> Boolean return true or false
+
+		boolean flag=false;
+		boolean flag1=true;
+		
+		default boolean return type is false
+
+
+How to store value in non premetive datatype:?----->
+
+	Syntax to store String values:--->
+
+			String email="sunireddy.gajjala@gmail.com";
+			String name="sunil";
+
+How to define Variable:-->
+
+	* Don't include space between variable	-->  String user_name="Ajay";
+	* Don't Start with Numeric
+
+
+------------------------------------->>>
+
+What types of variables available in Java?...>
+
+	
+	1.Local Variable
+	2.Instant variable
+	3.Class Variable
+
+
+1.Local Variable:--->
+
+	These variables define inside method, it can't share inforamtion
+	to other methods also for  other classes
+	When method closed data will be erased
+
+
+
+	Syntax:--->
+
+		public class Phone
+		{
+	
+			void Landphone()
+			{
+				int price=100;
+				system.out.println(price);
+			}
+
+			void mobile()
+			{
+
+				system.out.println(price);
+			//local variable can't share information to other methods
+					
+			}
+
+		}
+
+
+
+	Syntax:--->Real Application  (Local Variable)
+
+		public Hotmailhomepage
+		{
+
+			void launchApplication()
+			{
+
+				WebDriver driver=new firefoxDriver();
+				driver.get("http://hotmail.com");
+				driver.manage().window().maximize();
+
+			}
+
+
+			void signin()
+			{
+
+				//WebDriver method we can't access because 
+				we define webdriver interface locally
+		
+	
+			}
+		
+		}
+
+
+
+		
+------------------------------------------------------------->>>>
+
+
+
+Instant Variable:---->
+
+		Instant Variable Define Inside the class but outside the 
+		method , these variable can access across method and classes
+
+	Note:--. We should create object to access instant variable from outside class
+
+	Syntax:--->
+
+		public Phone
+		{
+			public int price=100;
+	
+			void Landphone()
+			{
+				system.out.println(price);
+				//Variable information can be used 
+			}
+
+			void mobile()
+			{
+
+				system.out.println(price);
+				//Variable Inforamtion can be used 
+			}
+		}
+
+
+
+
+
+
+----------------------------------------------------------------
+
+	Syntax:--->Real Application  (Instant Variable Example)
+
+		public Hotmailhomepage
+		{
+			public WebDriver driver;
+
+			void launchApplication()
+			{
+
+				driver=new firefoxDriver();
+				driver.get("http://hotmail.com");
+				driver.manage().window().maximize();
+			}
+
+			void signin()
+			{
+				//webdriver controls we receive because
+				//Webdriver class initiated as global
+
+				driver.findElement(By.id("i0112"));
+				driver.getTitle();
+		
+			}
+		
+		}
+
+
+-------------------------------------------------------->>>
+
+
+Class Variable:--->
+
+	These variable define inside the class, out side method same
+	as instant variable. only difference class variable define
+	along with Static Keyword
+
+	Note:--> static variable to access outside class no need of object creation
+	
+	Example:--> outside class variable information to use
+	Syntax:"------->  classname.variablename;
+		
+	public Phone
+		{
+			public static int price=100;
+	
+			void Landphones
+			{
+				system.out.println(price);
+				//Variable information can be used 
+			}
+
+			void mobile
+			{
+
+				system.out.println(price);
+				//Variable Inforamtion can be used 
+			}
+		}
+
+
+
+
+
+
+
+----------------------------------------------------->>
+
+Inheritance:--->
+
+	Inheritance extends class information to another class,parent
+	class to child class
+
+	Syntax:-->
+
+
+	
+class A		class B extends A       class C extends B
+{		{			{
+		
+}		{			{
+
+----------------------------------------------------------------------------------------------
+exception handling:-->
+
+	try catch is a exception handling statement, it  ignore runtime errors.
+	
+
+	try
+	{
+		//write Statement to execute
+	}
+	catch(Exception e)
+	{
+		s.o.p(e.getmessage());
+	}
+
+
+----------------------------------------------------->>
+
+passing parameter thorw method--------->>>
+
+
+
+class A
+{
+
+	void static method1(String name)
+	{
+		s.o.p(name);
+	}
+
+	public static void main(String args[])
+	{
+
+		method1("mindq");
+		method1("mq");
+		
+	}
+
+
+}
+
+
+
+
+-------------------------------------------------------->
+
+Methods:---->
+
+	Method describe Class behaviour and state, with in class
+	we can maintain multiple methods and muliple method types
+
+
+VOID:-->
+
+	public void m1()
+	{
+	   //It does't not return value	
+	}
+
+
+String:->
+
+	public String m2()
+	{
+
+	   return "sunilreddy";
+	}
+
+
+int:-->>
+
+	public int m3()
+	{
+
+	   return 100;
+	}
+
+
+boolean:-->
+
+	public boolean m4()
+	{
+
+	   return true;
+
+	}
+
+
+
+---------------------------------------------------------------------------------------------------??
+
+
+how to  capture current title of the page?.
+
+getTitle():--->
+
+	getTitle method retutrn current page title 
+
+	syntax:--.
+		String pagetitle=driver.getTitle();
+		system.out.println(pagetitle);
+
+
+How to Capture current page url:-->
+
+getcurrenturl()
+
+	this method return url of current page
+
+	Syntax:--.
+
+		String pageurl=driver.getCurrentUrl();
+		system.out.println(pageurl);
+
+
+getpagesource()--->
+	this method return current page source
+
+		String pagesource=driver.getPagesource();
+		system.out.println(pagesource);
+
+gettext()--->
+	
+	using this method we can capture any visible text available on target,
+	
+
+Capture Visibletext Available on single target?,,
+	
+	WebElement element=driver.finElement(By.id("idname"));
+	String elementtext=element.gettext();
+	system.out.println(elementtext);
+
+
+Capture Visible text available in Page:-->
+
+                 WebElement pagetext=driver.findElement(By.tagName("body"));
+		
+		String text=pagetext.getText();
+		System.out.println(text);
+
+
+getAttribute()--->
+
+	using this method on selected target we can get attribute values
+	using their names
+
+	<a id="ftrFdbk" class="footerlink" href="http://login.live.com/">Contact Us</a>
+	    
+
+	WebElement element=driver.finElement(by.id(idname));
+
+	element.getAttribute(id);
+	element.getAttribute(class);
+	element.getAttribute(hreg);
+
+	element.gettext();
+
+/html/body/div[2]/div/div[1]/div/div[2]/div[5]/div[1]/form/div[2]/input
+
+getTagname()
+
+	using this method we can findout selected target html tagname
+
+	WebElement element=driver.FindElement(By.id("idname");
+	String tag=element.getTagname();
+	system.out.println(tag);
+	
+
+	
+
+-------------------------------------------------------------------------------------------->>>
+
+Methods:--->
+
+	We Define methods with in a class, each method consit of different
+	behaviour and state
+
+
+How to denfine method:-->
+
+
+public class A
+{
+	void m1()
+	{
+		//it does't return any value to method name
+		//Except void we follow any other method type we must
+		define return value to method  name
+	}
+}
+
+
+-->how to define String method type---->
+
+
+public class A
+{
+	String m1()
+	{
+ 	      return "hello world";
+	}
+}
+
+--.How to Define int method type:-->
+
+public class A
+{
+	int m1()
+	{
+ 	      return 0;
+	}
+}
+
+--.how to Define Boolean method type:-->
+
+public class A
+{
+	boolean m1()
+	{
+ 	      return true;
+	}
+}
+
+
+
+----------------------------------------------------------------------------
+---------------------------------------------------------------------------->
+
+
+Create Usedefine method to verify text presented on page?...>
+
+	
+	public boolean verifytextpresent(String Expectedtext)
+	{
+		
+		boolean b=driver.getPageSource().contains(Expectedtext);
+		
+		
+		return b;
+		
+	}
+
+
+	Mainmethod:-->
+			if(verifytextpresent("text"))
+			{
+				s.o.p(textpresented);
+			}
+
+Creating userdefine method to verify title presented on page?...
+
+	
+	public boolean verifytitlepresented(String ExpectedTitle)
+	{
+		boolean b=driver.getTitle().contains(ExpectedTitle);
+		
+		return b;
+	}
+		
+	Mainmethod:-->
+			if(verifytitlepresented("pagetitle"))
+			{
+				s.o.p("titlepresented");
+			}
+
+
+creating usedefine method to verify url presented on page?
+
+	
+	public boolean verifyurlpresetned(String ExpectedURl)
+	{
+		boolean b=driver.getCurrentUrl().contains(ExpectedURl);
+		
+		return b;
+	}
+	
+	Mainmethod:==.
+	
+		if(verifyurlpresented("Baseurl")
+		{
+			s.o.p("url exsit");
+		}
+
+----------------------------------------------------------------------------------------------->>>
+
+Validation commands:---.
+
+
+
+isdisplayed():-->
+
+	isdisplayed is a boolean type return true or false, usefull to verify
+	object dispalyed in a page   (links, Editboxes, button,Dropdown)
+
+	boolean b=driver.findElement(By.id("idname")).isDispalyed();
+
+isSelected()-->
+
+	isselected is a boolean type return true or false , usefull to verify
+	checkboxes and radio button status check or uncheck
+
+	
+
+
+isenabled()--.
+
+	isenabled is a boolean type it return true or false, usefull to verify
+	any object enable and disable status
+
+	boolean b=driver.findElement(BY.id("idname")).isenabled();
+
+
+
+------------------------------------------Synchronization commands-------------------------------
+
+Thread.Sleep(2000);
+Implicitlywait
+Explicitwait
+FluentWait
+
+
+Thread.Sleep(timeout) :-->
+
+	is a jave wait command, it hold execution for specified timeout, it won't
+		release execution until timeout completed
+
+		Note:--> to apply thread.sleep in method we must declare "throws
+				execution" to method
+
+Implicitlywait():-->
+	We define implicitly wait only once, at browser launch time
+	it apply synchronization and set timeout until browser window to open
+		(until dom(documet object model) to load)
+
+	* It Enable timeout on Exception only
+	* After timeout enable, Expected behaviour found it continue
+	  execution without wait for timeout...
+	* 
+Syntax:--.
+	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+
+
+PageloadTimeout:-->
+	We define page load time out when new page arrived in a sofware,
+	it apply sychronization and set timeout untill all objects load in a page
+
+Synatax:-->
+	driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
+
+setScripttimeout():-->
+	We define setscript timeout to load until source get synchronized
+	* timeout enable on Asynchronization on Source
+
+
+syntax:-->
+
+	driver.manage().timeouts().setScriptTimeout(50, TimeUnit.SECONDS);
+
+
+-------------------------------------Explicit------------------------------------>
+
+Difference between implicit wait and Explicit wait
+
+
+implicit wait		Explicit wait
+			
+Set timeout for group 	Set timeout for correspondent object to load
+of objects at page
+
+
+Note:-->  donot define implict and explicit in a same method
+
+
+Note:-->
+	Explicitwait statements accomplish with "ExpectedConditions" class only
+
+	ExpectedConditions:-->  UserInterface validation class
+
+
+Advantages of Explicit:-->
+	Ajax windows we can handle
+	Ajax controls we can handle
+	We can avoid no suchelement found exceptions
+	Can design advanced webdriver scriping
+
+
+	Syntax:--->
+		WebDriverwait wait=new WebDriverwait(driver,50);
+		
+
+titlecontains("Expectedtitle"):-->
+
+	set timeout to wait until expected title contains on webpage
+	
+	wait.until(ExpectedConditions.TitleContains("ExpectedTitle");
+
+titleis("expectedtitle):-->
+
+	set titmeout to wait until expected title match Exactly on webpage
+	wait.until(Expectedconditions.TitleIs("ExpectedTitle");
+
+visbility of element located:-->
+
+	Set timeout until object visisble on page
+	wait.until(Expectedconditions.VisibilityofElemenetlocated(by.id("idname"));
+
+presenceofElementLocated:-->
+
+	Set Timeout until object presence in source
+	wait.until(ExpectedConditions.presenceofElementLocated(By.id("idname"));
+
+Elementtobeclickable:-->
+
+	set titmeout until object behaviour become clickable
+
+	wait.until(ExpectedConditions.Elementtobeclickable(by.linktext("linkname"));
+		
+Alertpresented:-->
+
+	Set timeout to veirfy alert presented on page
+
+	wait.until(Expectedconditions.Alertpresent());
+
+FrametobeAvailableSwitchtoIT:-->
+
+	To verify frame available on page , it available switch control to
+	frame
+stalenessof:--->
+	set timeout until object to load at dom--> document object model
+
+texttobepresenetedinElement:--->
+	
+	set timeout expected text presented on element
+
+
+
+---------------------------------------Switch Commands---------------------------->>
+How to handle Alert in webdriver?..
+
+Syntax:--.
+
+	//Capture Alert Text 
+	String Alertmessage=driver.switchTo().alert().getText();
+	s.o.p(Alertmessage)
+
+	//Accept Alert message
+
+	driver.switchTo().alert().accept();
+
+
+	//Dismiss Alert message
+	driver.switchTo().alert().dismiss();
+
+
+2nd method to Handle Alerts without using switch commands
+
+
+	WebDriverwait  wait=new WebDriverwait(driver,50);
+	
+	//Get message available at popup
+	String Alerttext=wait.until(Expectedconditions.Alertpresent()).gettext();
+	s.o.p(Alerttext);
+
+	//Accept Alert message
+	wait.until(Expectedconditions.Alertpresent()).accept();
+
+	//Dismiss AlertMessage
+	wait.until(Expectedconditions.Alertpresent()).dismiss();
+
+
+User defining method to verify alertpresented
+
+	public boolean isAlertPresent()
+	{
+	      try {
+		driver.switchTo().alert();
+		return true;   //When Dialog box present it return true
+			
+	            } catch (Exception e) {
+			
+		return false;   //When Dialog box not present it return false
+	}
+	
+
+//Verify Alert presented on page	
+
+		if(isAlertPresent())
+		{
+			driver.switchTo().alert().accept();
+		}
+		else
+		{
+			System.out.println("Alert not presented");
+		}
+		
+------------------------------------------------------------------------------------------->
+How to switch cotrol one window to another window?..
+
+
+getwindowhadle():
+
+	get current window id 
+
+	String mainwindow=driver.getwindowhandle();
+
+getwindowshandles();
+	
+	get all window id's available in page
+
+	Set<String> multipewindows=driver.getwindowhandles();
+
+
+-----------------------------------------------------------------------------------------?
+
+How to switch control one frame to another frame>
+
+
+	ApplicationLaunch("http://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/interactions/Actions.html");
+		
+	//Click Frames link
+	driver.findElement(By.xpath("html/body/div[2]/ul[2]/li[1]/a")).click();
+		
+	driver.switchTo().frame("packageFrame");
+		
+	driver.findElement(By.linkText("Alert")).click();
+		
+	driver.switchTo().defaultContent();  //Clear all switches before applying switch second time onwards
+	
+	driver.switchTo().frame("classFrame");
+		
+	//Click no frames link
+	driver.findElement(By.xpath("html/body/div[2]/ul[2]/li[2]/a")).click();
+
+
+
+Example:--->
+
+	How to set timeout for frame Exist
+
+	WebDriverWait wait=new WebDriverWait(driver, 50);	
+	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("packageFrame")));
+
+
+
+--------------------------------------How to Capture Screenshot-------->
+
+try {
+			
+	//Time Stamp using java
+	DateFormat df=new SimpleDateFormat("yyyy_MMM_dd hh_mm_ss");
+	Date d=new Date();
+	String time=df.format(d);
+		
+	File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	FileUtils.copyFile(src, new File("E:\\selenium_Workspace_Week20\\screens\\facebook"+time+".png"));
+	
+} catch (Exception e) 
+{
+          System.out.println(e.getMessage());
+}
+
+
+
+---------------------------------------Junit----------------------------
+
+	junit is a unit testing framework , usefull to debug writen programms
+	by developer
+
+	Why we are using junit framework in selenium:--->
+
+	1. To optimize test case and Scripts
+	2. By default Selenium does't have reporting option
+	3. To execute programms without using main method
+	
+	to execute methods  in a class we follow bellow annotations
+
+		@Test
+		@BeforeClass
+		@AfterClass
+		@Before
+		@After
+		@Ignore
+
+
+
+----------------------------------------------------------------
+
+
+
+Creating Junit Testcase:-->
+
+	Note:--> Junit is a default plugin for eclipse
+
+		right click on package----->New---> Junit Testcase
+		---Enter ClassName---> Click On finish
+		
+----------------------------------------------------------------------
+
+
+Annotation:---->
+
+	Annotations organize method execution with in class, all
+	annotations set for methods
+	
+
+
+@Test:-->
+
+	It enable method execution without using main method with in class
+
+	syntax:-->
+			@Test
+			public void methodname()
+			{
+
+			}
+
+
+
+
+------------------------------------------------------------------>
+
+@beforeClass:-->
+
+	Beforeclass annotated method execute , before first @Test annotated method with in 	class
+
+
+	syntax:-->
+		@BeforeClass
+		public static  void methodname() throws Exception
+		{
+			//usually we declare ,Variable and object - 					Inititaion under this method
+		}
+
+@AfterClass:--->
+
+	AfterClass annotation execute, After last @Test annoated method
+	with in class
+
+		@AfterClass
+		public static  void methodname() throws Exception
+		{
+
+		}
+
+@Before:-->
+
+	Before annotated method is execute before each @Test method with in  a class
+
+	Note:--> All test methods needed a same precondition
+
+		@Before
+		public void methodname() throws Exception
+		{
+		
+		}
+
+
+@After:-->
+
+	After annotated method execute after each @Test method with in a class
+
+	Note:--> All test methods needed a same kind of post condition
+
+		@After
+		public void methodname() throws Exception
+		{
+
+		}
+
+
+@Ignore:-->
+
+	Ignore annoation skip method execution
+
+		@Ignore
+		public void methodname()
+		{
+		
+		}
+
+--------------------------------------testNg--------------------
+
+TestNG----> Test next generation
+
+	Testng is a test approach framework it derived from junit and
+	Nunit framework, 
+
+
+TestNg Advantages:--->
+	
+	1. More annotation available, to oranize class and method execution
+	2. Support parameterization using Dataprovider annotation
+	3. Excelent result generation compare to junit
+	4. Easy way to execute test case from suite files
+	5. userdefined reports can be generate
+	6. Parameter can be define from suite file
+	7. Testng is not default plugin for eclipse, 
+		need to download from marketplaces
+
+TestNg installation:--->
+
+
+	TestNG is a plugin for eclipse
+
+	1.Open Eclipse-----> HelpMenu--->Click Eclipse Market places
+
+	2. Type testng in a serach field and click on search button
+	
+	3. Once Testng plug in sortout click confirm button
+	
+	4. Click Accept License agreement
+
+	5. Click on Next
+
+	6. Close Warning message
+	
+	7. Click on Finish
+
+	8. Click on Restart Eclipse
+
+
+	Note:--> After restart we can find testng plugin by rightclick on Src 
+		under your project
+-----------------------------------------------------------------------------
+
+Creating Testng class:-->
+
+	Right click on package--->Testng--->Create TestngClass
+
+	Enter class name ignore annotation click on finish
+
+	
+
+Note:--->
+	 Aftet Execution of Testng Class, 
+	 Refresh project once,
+	 it generate testoutput folder additionally under your project,
+	 Expand folder and watch result under 
+	 emailablereport or index
+
+
+Reporting syntax at Testng:-->
+
+	Reporter.log("Provide result");             --->only generate Result in  html file
+
+	Reporter.log("Provide result",true);     ---> result display at emailable report, 						Also under console
+
+
+	Note:-->	Above reporting option only we define under test annotated method
+
+
+
+----------------------------------------Testng suite file architecutre---------------------
+
+<suite name="suitename">
+	<test name="test1">
+		<classes>
+		           <class name="packagename.classname">
+			      <methods>											<include name="methodname"></include>
+				<exclude name="method name> </exclude>
+			       </methods>
+	                         </class>
+		</classes>
+	</test>
+</suite>
+
+------------------------------------------------------------************-------------------------------------------------------
+
+@BeforeSuite: The annotated method will be run before all tests in this 
+suite have run.
+
+@AfterSuite: The annotated method will be run after all tests in this suite have run.
+
+@BeforeTest: The annotated method will be run before any test method belonging 
+to the classes inside the <test> tag is run.
+
+@AfterTest: The annotated method will be run after all the test methods 
+belonging to the classes inside the <test> tag have run.
+
+@BeforeClass: The annotated method will be run before the first test method
+ in the current class is invoked.
+
+@AfterClass: The annotated method will be run after all the test methods in
+ the current class have been run.
+
+@BeforeMethod: The annotated method will be run before each test method.
+@AfterMethod: The annotated method will be run after each test method. 
+
+
+
+
+------------------------------------------------------------------------------------------------>
+Running Testng classes from suite file:--->
+
+
+Creation of XML file:--->
+
+	Right click on project--->New---->Click Others
+	Select XML File---> EnterFilename with extension click on finish
+
+	Select source tab in XML file
+
+
+<suite name="sutie1">
+	<test name="test1">
+		<classes>
+			<class name="packagename.classname"></class>
+		</classes>
+	</test>
+</suite>
+
+
+Run Suite File:--->
+		Right click on suite file---->Run as ---->  TestNg Suite 
+
+
+
+-------------------------------------------------------------------------------------------->
+How to prioritize test methods with in testng class:--->
+
+
+public class testngclass
+{
+	@Test(priority=0)
+	public void testmethod1()
+	{
+		
+	}
+}
+
+
+Note:-->
+	Testng execute methods in alphabetical order, in order to execute methods
+	in your own order specified at testng class. we can set priority for method
+
+
+---------------------------*******************_________________________________
+
+Example:--->How to provide description for testng method
+
+  @Test(description="write description")
+  public void test() 
+  {
+	  Reporter.log("method y is executed");
+  }
+  
+Note:-->
+	After Generating result , In test output folder,Under 
+	Index---->click Show All pass methods--->Along with Methodname
+	description display
+
+	Also display method description with in Console
+------------------------------------------------------------------------------------>
+
+How to Skip method execution with in testng class
+
+  @Test(enabled=false)
+  public void m1() 
+  {
+	  Reporter.log("method y is executed");
+  }	
+
+
+Note:-->
+	find result at index ignored methods
+---------------------------------------------------------------------------------------------------------------------------------
+
+how to provide execution dependency for single method:--->
+
+
+@Test(dependsonMethods={"dependent methodname"})
+
+
+how to provide execution dependency for multiple methods with in testng class:--->
+
+
+@Test(dependsonMethods={"dependent_m1","dependent_m2" })
+
+-------------------------------------------------------------------------
+How to insert assert statement in testng class...
+
+Assert:-->
+	Assert is a valdation statement, it abort the run on failure, in testng
+	it abort the method execution on failure
+
+	Asserttrue:--. Boolean comparsion
+	AssertEquals:--> Any String or other datatype comparision
+
+	  Assert.assertEquals("selenium", "selenium");
+	  Reporter.log("Match Found",true);
+
+
+---------------------------------How to Pass parameter from XML file-------------->>
+
+<suite name="sutie1" >
+       <test name="test1">
+	<classes>
+		<parameter name="url" value="http://hotmail.com"></parameter>
+		<parameter name="uid" value="sunilreddy"></parameter>
+		<parameter name="pwd" value="hello123"></parameter>
+
+		<class name="packagename.classname"></class>
+	</classes>
+       </test>
+	
+</suite>
+
+
+Note:--->	
+	name		:--->name of parameter
+	http:"//google.com :---> parameter value    
+	both are userdefined
+
+-----------------------------------How To Retrive parameter from XML---------
+
+@Test
+@parameters("parameter_name_from_xml")
+public void Testmethod(String userdefinedparameter)
+{
+
+	s.o.p(userdefinedparameter);
+}
+
+	//Note:--> when user retrive original parameter value from suite, By passing
+		local parameter to method we can override original value
+
+
+--------------------------------how to retrive multiple parameter from suite file
+
+@Test
+@parameters({"par1","par2"})
+public void Testmethod(String par1, String par2)
+{
+	s.o.p(par1);
+	s.o.p(par2);
+	
+}
+
+------------------------------>How to Execute Two are multiple tests with in suite 
+
+	
+<suite name="suite1">
+	<test name="test1">
+		//Declare what classes to execute
+	</test>
+
+	<test name="test2">
+		//Declare what classes to execute
+	</test>
+</suite>
+
+
+----------------------------How to execute multiple tests parallel--------->
+
+<suite name="sample"  parallel="tests">
+
+	//Define multiple tests  to execute
+</suite>
+
+
+	<suite name="My suite" parallel="methods" >
+	<suite name="My suite" parallel="tests" >
+	<suite name="My suite" parallel="classes" >
+	<suite name="My suite" parallel="instances" >
+
+
+
+    parallel="methods": TestNG will run all your test methods in separate threads. 
+		Dependent methods will also run in separate threads but they 
+		will respect the order that you specified.
+
+    parallel="tests": TestNG will run all the methods in the same <test> tag in the same thread,
+		 but each <test> tag will be in a separate thread. This allows you to 
+		group all your classes that are not thread safe in the same <test> 
+		and guarantee they will all run in the same thread while taking 
+		advantage of TestNG using as many threads as possible to run your
+		 tests.
+
+    parallel="classes": TestNG will run all the methods in the same class in the same thread, 
+			but each class will be run in a separate thread.
+
+    parallel="instances": TestNG will run all the methods in the same instance in the same
+			 thread, but two methods on two different instances will be 
+			running in different threads.
+
+
+
+--------------------------------------Dataprovider------------------------>
+		Dataprovoider is a annotation in testNG framework, It
+	organize input Data to Execute test methods
+
+	Adv:--->
+		* Without Defining Loops we can Execute test with multiple set
+				of data
+
+Creating Dataprovider class:--->
+		Right click on package---->Create testng Class--->
+		Enter Classname--->Select Dataprovider annoation
+		click on finish
+
+---------How to maintain data under dataprovider method--------->
+
+@DataProvider
+  public String[][] dp() 
+  {
+	  String data[][]=new String[1][1];
+	  //First Row data
+	  data[0][0]="qadarshan@gmail.com";
+	  data[0][1]="newpassword";  
+	return data;
+  }
+  
+	Note:--> @Dataprovider annotation we define where we maintain 
+	testdata to parameterize
+	
+--------------------------------------How to retrive Data from Dataprovider method
+
+	
+  @Test(dataProvider = "methodname")
+  public void f(String uid,String pwd) 
+  {
+	
+	
+  }
+
+
+------------------------------------------------------------------------------------------>
+How to retrivedata from different class..
+
+@Test(dataProvider="methodname", dataProviderClass = classname.class)
+public void (String var,String var)
+{
+	//Define Input Data Method with static, to use data in different class
+}
+
+
+
+-----------------------Working with Property files---------------------->
+
+		property files are usefull to store pair value, 
+
+		Store inputdata with key and value into Repository
+
+How to create Property files in java project:------->
+
+	1. create testdata folder under project
+
+	nav:--->Right click on project------->New -----> Folder---> Enter foldername [Testdata]
+
+create file under testdata folder:--->
+
+	Right click on Folder[Testdata]---->New ---->File----> Enter File name along with
+	properties extension    (inputdata.properties)
+
+	Store Data into Propertyfiles using
+
+		key=value
+
+
+
+----------------------------------Working with Excel Files------------------------------
+
+	Same as other automation tools, selenium also support parameterization
+	using excel sheets, 
+	
+	Excel application available in 2 formats
+	1. jxl
+	2. apache poi
+	
+	jxl:---> Jxl is a program interface  for Microsoft Excel, Which allo user to 
+		read and write input data from excel sheets 
+		support format is 97-2003 workbook format  [.xls]
+
+	ApachePoi:---> is a program interface for Microsoft Excel, support
+			97-2003 workbook and 2007 above workbook
+
+Where to download jxl.jar file:------>
+	https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl/2.6.12
+
+		google for maven repository
+		search for jxl.jar
+		click on jxl After find search
+		Click on Latest jxl version
+		click on Download jar
+		Save jar file into drive
+
+	Note:--> configure jxl.jar to Current project using --->
+			buildpath and configure build path
+
+	Note:---> jxl support only 97-2003 workbook format, to retrive data
+		from 2007 workbook follow below naivigation 
+
+		Open 2007 workbook format
+		Save as 97-2003 workbook format
+
+
+-----------------------------------------------MicrosoftExcel---Apache POI-------
+
+		 program interface  for Microsoft Excel, Which allow user to 
+		 read and write input data from excel sheets
+
+
+Downlaod Apache POI---->
+
+		URL--->    https://poi.apache.org/download.html
+			Download Zip file Under binary
+			Select any mirror to download
+			unzip File to Any drive
+			Configure All jar files to current project
+			
+			HSSF --->.xls
+			XSSF --->.xlsx
+
+
+
+
+
+------------------working with CsvFiles-------------------------------------------------------------
+
+	SOme times  we need to work with same test data in different environments, 
+	Ms Excel  does't support to install in differnet operating system
+	in this case we save excel sheet as .csv file to share in dual environment
+
+	how to download opencsv.jar file
+	
+		URL:-->https://sourceforge.net/projects/opencsv/
+
+	Configure opencsv file to current project:--->
+
+Create Csv File:--->
+		Open Excel workbook
+		save file with csv extension
+		
+		
+	
+
+------------------------------------Grid Configuration
+
+
+//Run hub
+
+	java -jar selenium-server-standalone-2.45.0.jar -role hub
+
+//Running global node
+
+	java -jar selenium-server-standalone-2.45.0.jar -role node  -hub http://localhost:4444/grid/register
+
+//How to run register node only
+java -jar selenium-server-standalone-2.45.0.jar -role node  -hub http://localhost:4444/grid/register -port 1111 -browser browserName=firefox
+
+
+
+ DesiredCapabilities capability = DesiredCapabilities.firefox();
+	  	
+	  WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+	  
+	  driver.get("http://google.com");
+
+
+---------------------------------------------Maven Configuration-------------------
+
+Check java configured on your pc:-->
+
+	cmd:--> java -version
+
+Create Environment vairable in computer properties wiht JAVA_HOME
+
+
+Dowload Maven 
+
+set maven path to environemnt vairblemvn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

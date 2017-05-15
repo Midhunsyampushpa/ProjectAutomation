@@ -1,0 +1,115 @@
+Downloads required for webdriver:--->
+
+	java                 --->     jdk 1.8 above
+	Eclipse            --->     Java developement version
+	webdriver Api --->     java language
+
+
+Download java jdk1.8:---->
+
+	before download java find hotspot size
+
+	Navigation:--->
+		windows--->Start Menu----> Right click on my computer
+		---> Select properties---> Find System type
+
+			32bit	or 	64bit
+
+Download JDK-->Java development kit
+
+	URL:-->www.oracle.com/technetwork/java/javase/downloads/
+	click on java download
+	Select checkbox accept license agrement at downloads page
+	Select platfrom(Windows)
+	w.r.t Hotspot size download latest executable jar file
+	Downloaded file Save into backup driver , use double click to install it
+
+
+How to confirm java instalation:--->
+	
+	Open cmd prompt   
+	type :---> java  -version
+
+	Navigation:--> C:\Program Files\Java\jdk1.8.0_65\bin
+
+
+Download Eclipse:--->
+	
+	URL --->	http://www.eclipse.org/downloads/packages/
+		
+	click on---> Eclipse IDE for Java Developers | Packages
+	Select operation system and hotspot size click on it
+	in mirror selection page click on download button
+	Save zip file into backup driver
+	unzip File---> after unzip We receive ecipse folder
+	--> under eclipse folder Find  Eclipse Application in Ball Icon symbol
+	
+
+Download webdriver API:--->
+	
+	URL:--->	http://seleniumhq.org
+
+	click on download
+	under webdriver languages bindings
+	Choose language java  click on download
+	after click on download it Ask to save Zip format file
+	Save file into backup drive 
+	unzip file
+
+	
+----------------------------------------------------------------------------------------------------------------------->
+Create Workspace:---->
+	
+	1. Create Empty folder at any drive (Selenium Workspace)
+	2. Create sub folder and name it library
+	3. Downloaded webdriver api files copy to library folder
+
+
+Launch workspace using Editor:--->  Workspace is usefull to store projects and files
+
+	1. Double click on eclipse icon
+	2. click on Run  (optional)
+	3. browse workspace location click on ok
+	4. Close Welcome banner
+
+
+Create java project under eclipse:--->
+
+	1. Open Eclipse
+	2. Use File Menu---->New--->Other----->Open Java folder
+				-----> Click on Javaproject
+				-----> click on next
+				----->Enter project name
+				-----> click on finish
+				-----> click on yes
+
+	Note:--->
+		After completed project creation, will find project details under
+		package explorer
+
+Configure webdriver jar files to java project:--->
+
+	1. Right click on JRE system library file under project
+	2. Use Buildpath
+	3. Select Configure build path
+	4. Click on External files button under project configuration window
+	5. browser webdriver jar file location and 
+			browse all executable files to current project
+	6. After configuration under project receive referenced jar files
+			
+				
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	

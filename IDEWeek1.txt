@@ -1,0 +1,203 @@
+
+
+IDE overview:-->
+
+	Advantages of IDE:-->
+		* Record and play back on WebInterfaces using firefox browser
+		* Object Identification mechanisum
+		* periodically can schedule Execution for Test suites
+		* Generate Script for other components in Different Langages
+				(RC---->Java, Python,C#)
+				(Webdriver----> Java.Python,C#)
+
+
+Install Selenium IDE:-->
+
+	*open firefox browser
+	* launch Selenium official website -->http://seleniumhq.org
+	* Click on Download tab
+	* Under Selenium IDE click  <add-on.mozilla.org>  Link
+	* After reading selenium overivew click on Addtofirefox
+	* Click install, and quick restart is required to complete Installation
+
+
+navigation to open Selenium IDE:-->
+		
+		Ctrl+Alt+S----> Keybord Shortcut
+		Open Firefox---> ToolsMenu--->Selenium IDE
+
+
+Record webinterfaces using Selenium IDE:--->
+
+	* Open Selenium IDE (By default it open in recording mode)
+	* Start performing Actions you wish to automate on WebPages
+	* Stop Recording
+	* Use Execution mode slow or speed
+	* Click on Play current Testcase
+	* Save Testcase using file menu after your run completed
+
+
+IDE typically divided into 4 parts
+
+	1. Testcase Pane
+	2. Tollbar
+	3. Menu bar
+	4. Log\ reference bar
+
+
+Testcase Pane:-->
+
+		Testcase pane allow user to Record , Edit, Dubug Scripts
+
+	1. Command		2. Target		3. value
+
+Command:-->
+		In IDE commands available 3 types
+	
+		1. Actions
+		2. Assertions
+		3. Accesories
+
+1. Actions:--->
+
+	Actions manipulate application behaviour, Ususally we perform very less actions
+	on webpage  Example:-->
+				open
+				Click
+				type
+				select
+				clickAndwait
+				close
+
+	IDE record only above Actions during recording time
+
+
+2. Assertions:-->
+	
+	Assertions work like checkpoints on wepage ,usefull to validate 	application 	behvaour.
+	 for each action result we verify using assertions command only..
+
+	We can't Record assertions, we need to Select Manually
+
+How to Apply assertions:-->
+
+	Make sure Selenium IDE was open-------> Right click on Any element you 			wish to verify ------> Select Show all available commands------>
+		Select Any correspondent Command to Apply as assertion...
+		After selection it copied to IDE clipboard
+	
+	Assertions Available in 3 types
+	1. Assert:---> assert stop execution on failure
+
+	2. verify:--. Verify continue execution on failure, After reporting
+
+	3. Waitfor:--> Hold Execution on failure and Enable default timeout to wait for
+			object. if required object not found continue execution for rest 			of steps after reporting
+
+Regular UsingCommands:-->
+
+	AsserTitle		VerifyTitle		WaitforTitle
+	AssertText		VerifyText	 	WaitforText
+	AssertElementpresent	VerifytElementpresent	waitforElementpresent
+
+Accesories:-->
+		Accesories are usefull to examine application behaviour, Finally 
+		store result into variable to validate Next time....
+
+Navigation:--->
+		* Right click on Element you wish to store result
+		* Select correspondent store command
+		* Enter Variable name at popupwindow
+
+
+		storetext		id="abc"		variablename
+		
+		* validate Next time same behaviour using below syntax
+	
+		
+		type	  	id="xyz"	   	${variablename}
+		asserttext	id="xyz"		${variablename}
+
+----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------->
+Target:--->
+	IDE had default object Identification During Recording Time.
+	We can copy different locators from ide whenever need to write scripts 
+	for webdriver
+
+
+	Default locators available in IDE:-->
+
+		id
+		name
+		class
+		css
+		xpath
+		link	
+		dom
+
+
+Value:--->
+		Value is userdefined, Only required time we define manually
+
+------------------------------------------------------------------------------------------------------------------------->
+Preparation of testSuite periodically:-->
+
+		* Create New Testcases Multiple (Nav:-->IDE--.file___Newtestcase)
+		* Save Each Test case , Also save All testcase under suite file
+		* Click on Turn Schedular On and off
+		* Select Option Play test suite periodically
+		* Enter Job name, at test schedular window
+		* Specify Suite file location
+		* select advanced timeout
+		* Select Turn schedular on and off checkbox
+		* Click on Finish
+
+
+---------------------------------------------------------------------------------------------------------------------------->
+
+Convert Recorded script Into Different languages and components:--->
+
+	Enable Feature:-->
+			open IDE 
+			Options-----> Option
+			Make sure Enable Experimental feature checkbox is 					Selected
+			if not select
+
+	Convert feature:-->
+			record Any Script
+			use options menu---> format
+
+			Select any language and component you wish to 					convert
+			
+	Release convertion:--> to getback to table window from source
+			
+			use options menu
+			format	
+			Select HTML
+			click on Table tab
+
+	
+additonal addons for Selenium IDE:--->
+
+	Screenshot on Failure
+	TestResult
+	Element highlighter
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

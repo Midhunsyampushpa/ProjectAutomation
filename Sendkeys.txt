@@ -1,0 +1,270 @@
+
+
+
+
+Create package In Eclipse:--->
+	
+	Under project--->Right click on src---->use New option----> select package
+	--->Enter package name (Start with lowercase)--->
+	Click on finish
+
+	package name preffered--->
+			org.java		org.webdriver
+			com.java		com.webdriver
+		
+
+Create Java Class Along with mainMethod:---->
+
+	Right click on package---->New---->Class------>enter
+	classname(Startwith uppercase)---->Select checkbox
+	under which method stubs would you like to create 
+	<----public static void main (String [] args)---->
+	click on finish
+
+When to write import package for any class:---->
+
+	Whenever need to reuse Class,method or variable from
+	different package , Import is Mandatory
+
+Syntax:-->
+
+	import packgename.classname;
+
+
+
+Locators in Webdriver:--->
+
+	id
+	name
+	classname
+	tagname
+	cssselector
+	xpath
+	linktext
+	partiallinktext
+	
+	
+
+	Default object identification option:---->
+		
+			* open Application
+			* Press F12  (it opens html window)
+			* pick element from webpage
+
+firebug:-->
+	Firebug is a plug in firefox browser,
+	using firebug We can monitor html, css, javascript of Webpage
+
+	Note:--> for other browsers we use "firebug lite"
+
+why firebug....?
+	* Selenium recognize Objects Using Html and Css
+
+How to Install firebug plugin into firefox Browser?...
+
+	* Google for "firebug Mozilla Add on"
+	* After search Click Firebug Mozilla Add on link
+	* Click On Add to firefox
+	* Click Install
+
+	After Installation we can receive Firebug window on webapplication
+	using Keyboard ShortCut < F12 >
+
+	Navigation:-->
+		Right click on Element you wish to inspect:------> 
+		Select "Inspect Element with Firebug"
+
+	Note:--> It Enable firebug Window along with Selection of object,
+			object properties Highlight In Blue Color
+
+	* Get Any property Value matching with in webdriver locators 
+
+			Id    (or)     name
+
+How to identify WebEdit box in HtmlSource and prepare script for edtibox:--->
+----------------------------------------------------------------------------------------------------------------------
+
+Html Source:-->
+
+	<input id="user1" type="email" class="inputbox" name="username">
+
+
+	Note:--> We can use Sendkeys Command when object have Input tagname 					and type is email, text, password
+
+	Syntax:--->
+
+		driver.findElement(By.id("user1")).clear();
+		driver.findElement(By.id("user1")).SendKeys("UserInput");
+		
+		//Keyboard inputs
+		driver.findElement(By.id("user1")).SendKeys(keys.TAB);
+
+
+	Note:--->  1.  sendkeys command usefull to pass <character sequence or 	                   			     Keyboard inputs>
+		2. clear command only we use for webeditbox because 						     webdriver append text instead of overriding
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+How to Identify DropdDown, at HTML source?
+
+Html Source:-->
+
+		      <select id="Country" >
+			<option value="Ind"> India</option>
+			<option value="Usa"> America</option>
+			<option value="UK"> United kingdom</option>
+		       </select>
+
+	Note:--> Where Object contains Select tag only we Consider as dropdown
+		or combobox, we use below select commands on Select tag 
+		objects only
+
+	Syntax:--->to select dropdown
+		Select obj=new Select(WebElement);
+		obj.SelectByvisibletext("text");
+		obj.SelectByvalue("value");
+		obj.SelectByindex(position);
+
+		Select class package:---.
+		import org.openqa.selenium.support.ui.Select;
+
+	WebElement:--> 
+			Pass Webdriver referal by targeting any object
+			driver.findElement(By.id("propvalue"));
+	
+
+------------------------------------------------------------------------------>>>
+
+	
+	Html Source:-->
+	
+		<select id="Country" >
+			<option value="Ind"> India</option>
+			<option value="Usa"> America</option>
+			<option value="UK"> United kingdom</option>
+		</select>
+	
+
+1. how to select two options from combobox:---->
+
+Example:---> Select <india> and <uk> option from Combobox
+
+	Note:---> use Select Command twice with same locator but input 
+		values should be different
+
+Syntax:--->
+		Select country=new select(driver.findElement(By.id("Country")));
+		country.SelectByvisibletext("India");
+		country.SelectByvisibletext("United kingdom");
+
+-------------------------------------------------------------------------------------------->
+DeselectByvisibleText:--->
+
+	usefull to deselect any single option from multiple selection using
+	option visible name 
+Syntax:--->	
+
+new select(driver.findElement(By.id("Country"))).deselectByvisibletext("India");
+
+---------------------------------------------------------------------------------------------->
+DeselectByvalue:--->
+		usefull to deselect any single option from multiple selection 
+		with in combobox using option unique value
+Syntax:--->
+		new select(WebElement).deselectByvalue("optionvalue");
+
+------------------------------------------------------------------------------------------------->
+DeselectByindex:--->
+		usefull to deselect any single option from multiple selection	
+		with in combobox
+Syntax:--->
+		new select(WebElement).deselectByvalue(option position);
+--------------------------------------------------------------------------------------------------->
+DeselectAll:--->
+		usefull to Deselect all option from Combobox at once
+
+Syntax:--->
+		new select(WebElement).deselectAll();
+---------------------------------------------------------------------------------------------------------------------
+
+Working with Linktext or partial Linktext:----->
+
+	Note:---> Linktext or partial linktext or Locators from webdriver
+
+Htmlsource for link:--->
+
+		<a id="xyz"  href="http://facebook.com\mobile" >Mobile App</a>
+
+Click Link using Lintext:--->
+	
+	Syntax:--->
+		driver.findElement(By.Linktext("Mobile App")).click();
+
+	Note:---> During linktext locator define original name of link, we always		
+		prefer outtertext to click a link
+
+Click link using partialLinktext:--->
+		
+		driver.findElement(By.Partialinktext("Mobile")).click();
+
+	Note:---> During partiallinktext define matching characters with in link
+		
+when to use partial link:--->
+	1. dynamic changes at link
+	2. when link name available too lengthy
+
+------------------------------------------------------------------------------------------------
+working with checkbox:----->
+
+htmlsource:--->
+	
+	<label  id="x"  for="y">
+		<input id="y" type="checkbox">
+		<span>labelname</span>
+	</label>
+
+Example1:---> target element with checkbox property
+
+	driver.findElement(By.id("y")).click();
+
+Example2:--> target checkbox element with label property
+	
+	driver.fidElement(By.id("x")).click();
+
+
+Note:--->   Select and deselect we follow same command
+
+-------------------------------------------------------------------------------------------------------------
+Working with Radio button:--->
+
+htmlsource:--->
+	
+	<label  id="x"  for="y">
+		<input id="y" type="radio">
+		<span>roundtrip</span>
+	</label>
+
+
+	//Select Radio button
+	driver.findElement(By.id("x")).click();
+	driver.findElement(By.id("y")).click();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
